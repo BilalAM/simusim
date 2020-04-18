@@ -1,0 +1,17 @@
+tuple=1,source1,mera1,true
+tuple=2,source1,mera2,true
+tuple=3,source1,mera3,true
+tuple=4,source1,mera4,true
+tuple=5,source1,mera5,true
+tuple=6,source1,mera1,true
+tuple=7,source1,mera2,true
+tuple=8,source1,mera3,true
+tuple=9,source1,mera4,true
+tuple=10,source1,mera5,true
+tuple=11,source1,mera1,true
+tuple=12,source1,mera2,true
+tuple=13,source1,mera3,true
+tuple=14,source1,mera4,true
+tuple=15,source1,mera5,true
+
+============================
