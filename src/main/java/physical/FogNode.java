@@ -8,7 +8,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import strategies.TupleProcessingStrategy;
 
-import java.math.BigInteger;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ThreadLocalRandom;
@@ -21,6 +22,9 @@ public class FogNode {
 
     private double utilizedRam;
 
+
+    public List<Double> utilizationHistory = new ArrayList<>();
+    public List<Long> tupleTimeHistory = new ArrayList<Long>();
     private List<Tuple> tuple;
     private List<FogNode> connectedFogNodes;
     private List<Sensor> connectedSensorNodes;
@@ -87,7 +91,7 @@ public class FogNode {
 
         // if 'this' node's RAM is full
         // send it to upper level node.
-        if (this.utilizedRam >= this.totalRAM) {
+        if (this.utilizedRam > this.totalRAM) {
             LOGGER.trace("[" + this.getName() + "]--Warning ! Overloaded RAM ! , Sending remaining tuples to a high level node !");
             for (FogNode fogNode : this.getConnectedFogNodes()) {
                 // if that fognode has a level 1 and has its utilized RAM less than total RAM , then send it to
@@ -102,12 +106,13 @@ public class FogNode {
             // then we would have to send it to anyone of high level node Queues .
             if (tupleToReceive.getState().equals(TupleState.SENSOR_TO_FOGNODE.toString())) {
                 LOGGER.info("[" + this.getName() + "]--Tuple is still at [" + TupleState.SENSOR_TO_FOGNODE.toString() + "] , " +
-                        "sending it to high fognodes queue");
+                        "sending it to High FogNode PENDING QUEUE , total Tuples in list [ "+ tuple.size() +"]");
                 for (FogNode fogNode : this.getConnectedFogNodes()) {
                     if (isHighLevel(fogNode)) {
                         fogNode.getPendingTuplesQueue().add(tupleToReceive);
                         tupleToReceive.setState(TupleState.FOGNODE_TO_HIGHNODE);
-                        LOGGER.info("[" + this.getName() + "]--Tuple is sent to [" + fogNode.getName() + "] queue , freeing up space");
+                        LOGGER.info("[" + this.getName() + "]--Tuple is sent to [" + fogNode.getName() + "] queue , freeing up space and list");
+                        this.tuple.remove(tupleToReceive);
                         freeUpSpace();
                         break;
                     }
@@ -117,7 +122,12 @@ public class FogNode {
             this.utilizedRam = this.utilizedRam + 10;
             this.tuple.add(tupleToReceive);
             LOGGER.log(Level.INFO, "[" + this.getName() + "]--Tuple received , INCREASING ram by 10 units . Total utilized RAM is [ " + utilizedRam + " ] and total tuples in list [ " + tuple.size() + " ]");
+            utilizationHistory.add(utilizedRam);
+            Instant start = Instant.now();
             processTuple(tupleToReceive);
+            Instant end = Instant.now();
+            long time = Duration.between(start,end).toMillis();
+            tupleTimeHistory.add(time);
         }
     }
 
@@ -176,9 +186,9 @@ public class FogNode {
         double dataLength = tuple.getDataLength();
         try {
             if (dataLength >= 100 && dataLength <= 350) {
-                Thread.sleep(500);
+                Thread.sleep(ThreadLocalRandom.current().nextInt(500,1000));
             } else if (dataLength > 350 && dataLength <= 500) {
-                 Thread.sleep(500);
+                 Thread.sleep(1000);
             } else if (dataLength > 500 && dataLength <= 1000) {
                 Thread.sleep(500);
             }
