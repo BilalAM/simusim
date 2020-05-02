@@ -1,0 +1,48 @@
+FogNode 1 Summary
+=====================================
+Total tuples processed : 10
+Date and time :          2020-05-02T21:49:34.099180
+Connected to :           [physical.FogNode@1165b38[
+  id=3
+  name=f3
+  tuples=[]
+  MIPS=1000.0
+  Utilized RAM=0.0
+  Downlink BW=100
+  Uplink BW=100
+]]
+=====================================
+
+
+--------------------------
+Ram Utilization History : -
+---------------------------
+Second : Ram Utilized
+1,10
+2,13
+3,23
+4,18
+5,28
+6,25
+7,35
+8,35
+9,45
+10,44
+
+
+---------------------------
+Tuples Processing Summary :
+---------------------------
+Tuple : Tuple Processed Time
+1,1,000
+2,827
+3,1,000
+4,1,000
+5,1,000
+6,1,000
+7,1,000
+8,681
+9,1,000
+10,1,000
+
+

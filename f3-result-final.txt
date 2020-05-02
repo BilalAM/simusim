@@ -1,0 +1,36 @@
+FogNode 3 Summary
+=====================================
+Total tuples processed : 0
+Date and time :          2020-05-02T21:49:34.161734
+Connected to :           [physical.FogNode@367ffa75[
+  id=1
+  name=f1
+  tuples=[logical.Tuple@49438269[ID=0,source=source-A,destination=source-B,data-length=498.9246523531995], logical.Tuple@ba2f4ec[ID=1,source=source-A,destination=source-B,data-length=315.35474873088094], logical.Tuple@1c1bbc4e[ID=2,source=source-A,destination=source-B,data-length=485.73759591488204], logical.Tuple@55fe41ea[ID=3,source=source-A,destination=source-B,data-length=455.26587577702225], logical.Tuple@fbd1f6[ID=4,source=source-A,destination=source-B,data-length=394.8025252134489], logical.Tuple@1ce24091[ID=5,source=source-A,destination=source-B,data-length=459.3278627846736], logical.Tuple@5dda768f[ID=6,source=source-A,destination=source-B,data-length=487.9190510376335], logical.Tuple@7a8c8dcf[ID=7,source=source-A,destination=source-B,data-length=229.05213187905358], logical.Tuple@24269709[ID=8,source=source-A,destination=source-B,data-length=498.01573463597447], logical.Tuple@2aceadd4[ID=9,source=source-A,destination=source-B,data-length=389.477183368041]]
+  MIPS=1000.0
+  Utilized RAM=40.0
+  Downlink BW=100
+  Uplink BW=100
+], physical.FogNode@24aed80c[
+  id=2
+  name=f2
+  tuples=[logical.Tuple@49438269[ID=0,source=source-A,destination=source-B,data-length=498.9246523531995], logical.Tuple@ba2f4ec[ID=1,source=source-A,destination=source-B,data-length=315.35474873088094], logical.Tuple@1c1bbc4e[ID=2,source=source-A,destination=source-B,data-length=485.73759591488204], logical.Tuple@55fe41ea[ID=3,source=source-A,destination=source-B,data-length=455.26587577702225], logical.Tuple@fbd1f6[ID=4,source=source-A,destination=source-B,data-length=394.8025252134489], logical.Tuple@1ce24091[ID=5,source=source-A,destination=source-B,data-length=459.3278627846736], logical.Tuple@5dda768f[ID=6,source=source-A,destination=source-B,data-length=487.9190510376335], logical.Tuple@7a8c8dcf[ID=7,source=source-A,destination=source-B,data-length=229.05213187905358], logical.Tuple@24269709[ID=8,source=source-A,destination=source-B,data-length=498.01573463597447], logical.Tuple@2aceadd4[ID=9,source=source-A,destination=source-B,data-length=389.477183368041]]
+  MIPS=1000.0
+  Utilized RAM=38.0
+  Downlink BW=100
+  Uplink BW=100
+]]
+=====================================
+
+
+--------------------------
+Ram Utilization History : -
+---------------------------
+Second : Ram Utilized
+
+
+---------------------------
+Tuples Processing Summary :
+---------------------------
+Tuple : Tuple Processed Time
+
+
