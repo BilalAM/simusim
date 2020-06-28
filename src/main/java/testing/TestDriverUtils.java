@@ -15,6 +15,8 @@ public class TestDriverUtils {
         for (int i = 0; i < size; i++) {
             tuples.add(new Tuple(i, "source-A", "source-B"));
         }
+        // fixing data length to 100
+        tuples.get(0).setDataLength(100);
         return tuples;
     }
 

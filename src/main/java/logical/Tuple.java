@@ -7,6 +7,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Tuple {
     private int tupleId;
+
+    public void setDataLength(double dataLength) {
+        this.dataLength = dataLength;
+    }
+
     private double dataLength;
     private String source;
     private String destination;
