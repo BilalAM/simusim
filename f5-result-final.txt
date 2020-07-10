@@ -1,29 +1,32 @@
 FogNode 1 Summary
 =====================================
-Total tuples processed : 32
-Date and time :          2020-06-29T00:39:06.416789
-Connected to :           [physical.FogNode@65e98b1c[
+Total tuples processed : 0
+when-missing
+
+Date and time :          2020-07-10T23:35:27.144488
+Average Processing time of all tuples :  0
+Connected to :           [physical.FogNode@70325e14[
   id=1
   name=f1
-  tuples=[logical.Tuple@61322f9d[ID=0,source=source-A,destination=source-B,data-length=100.0], logical.Tuple@6ad82709[ID=1,source=source-A,destination=source-B,data-length=204.86782941207662], logical.Tuple@510f3d34[ID=2,source=source-A,destination=source-B,data-length=405.22040942064785], logical.Tuple@7817fd62[ID=3,source=source-A,destination=source-B,data-length=474.00548896320356], logical.Tuple@8297b3a[ID=4,source=source-A,destination=source-B,data-length=129.31466316883228], logical.Tuple@2362f559[ID=5,source=source-A,destination=source-B,data-length=375.0492562177195], logical.Tuple@b2c9a9c[ID=6,source=source-A,destination=source-B,data-length=393.2566904991023], logical.Tuple@4c178a76[ID=7,source=source-A,destination=source-B,data-length=129.42083237009174], logical.Tuple@fa4c865[ID=8,source=source-A,destination=source-B,data-length=438.9556461822501], logical.Tuple@3bd82cf5[ID=9,source=source-A,destination=source-B,data-length=174.2065505206606], logical.Tuple@544fa968[ID=10,source=source-A,destination=source-B,data-length=333.7104858483451], logical.Tuple@247bddad[ID=11,source=source-A,destination=source-B,data-length=127.73841431510174], logical.Tuple@d35dea7[ID=12,source=source-A,destination=source-B,data-length=499.1976509381854], logical.Tuple@7770f470[ID=13,source=source-A,destination=source-B,data-length=340.5090954974603], logical.Tuple@5e5d171f[ID=14,source=source-A,destination=source-B,data-length=263.9478933732827], logical.Tuple@24313fcc[ID=15,source=source-A,destination=source-B,data-length=489.9452508528483], logical.Tuple@7d20d0b[ID=16,source=source-A,destination=source-B,data-length=209.84921534395772], logical.Tuple@77f1baf5[ID=17,source=source-A,destination=source-B,data-length=200.90935618988453], logical.Tuple@41a2befb[ID=18,source=source-A,destination=source-B,data-length=432.58514973016634], logical.Tuple@6c40365c[ID=19,source=source-A,destination=source-B,data-length=437.90490784418785], logical.Tuple@7bedc48a[ID=20,source=source-A,destination=source-B,data-length=401.2297535935628], logical.Tuple@131ef10[ID=21,source=source-A,destination=source-B,data-length=475.8828969698504], logical.Tuple@55b0dcab[ID=22,source=source-A,destination=source-B,data-length=282.24471578565226], logical.Tuple@38afe297[ID=23,source=source-A,destination=source-B,data-length=226.81391723526264], logical.Tuple@4c402120[ID=24,source=source-A,destination=source-B,data-length=369.2741266740904], logical.Tuple@2df3b89c[ID=47,source=source-A,destination=source-B,data-length=362.064374674367], logical.Tuple@682b2fa[ID=48,source=source-A,destination=source-B,data-length=179.25709969173536]]
+  tuples=[logical.Tuple@37ceb1df[ID=9,source=source-A,destination=source-B,data-length=206.0], logical.Tuple@7c9d8e2[ID=3,source=source-A,destination=source-B,data-length=245.0], logical.Tuple@20d525[ID=4,source=source-A,destination=source-B,data-length=267.0], logical.Tuple@6200f9cb[ID=2,source=source-A,destination=source-B,data-length=320.0], logical.Tuple@2002fc1d[ID=5,source=source-A,destination=source-B,data-length=425.0], logical.Tuple@69453e37[ID=0,source=source-A,destination=source-B,data-length=654.0], logical.Tuple@6f4a47c7[ID=1,source=source-A,destination=source-B,data-length=659.0], logical.Tuple@ae13544[ID=7,source=source-A,destination=source-B,data-length=659.0], logical.Tuple@3d34d211[ID=8,source=source-A,destination=source-B,data-length=950.0], logical.Tuple@7dc0f706[ID=6,source=source-A,destination=source-B,data-length=972.0]]
   MIPS=1000.0
-  Utilized RAM=106.0
+  Utilized RAM=91.0
   Downlink BW=100
   Uplink BW=100
-], physical.FogNode@23348b5d[
+], physical.FogNode@4009e306[
   id=2
   name=f2
-  tuples=[logical.Tuple@61322f9d[ID=0,source=source-A,destination=source-B,data-length=100.0], logical.Tuple@6ad82709[ID=1,source=source-A,destination=source-B,data-length=204.86782941207662], logical.Tuple@510f3d34[ID=2,source=source-A,destination=source-B,data-length=405.22040942064785], logical.Tuple@7817fd62[ID=3,source=source-A,destination=source-B,data-length=474.00548896320356], logical.Tuple@8297b3a[ID=4,source=source-A,destination=source-B,data-length=129.31466316883228], logical.Tuple@2362f559[ID=5,source=source-A,destination=source-B,data-length=375.0492562177195], logical.Tuple@b2c9a9c[ID=6,source=source-A,destination=source-B,data-length=393.2566904991023], logical.Tuple@4c178a76[ID=7,source=source-A,destination=source-B,data-length=129.42083237009174], logical.Tuple@fa4c865[ID=8,source=source-A,destination=source-B,data-length=438.9556461822501], logical.Tuple@3bd82cf5[ID=9,source=source-A,destination=source-B,data-length=174.2065505206606], logical.Tuple@544fa968[ID=10,source=source-A,destination=source-B,data-length=333.7104858483451], logical.Tuple@247bddad[ID=11,source=source-A,destination=source-B,data-length=127.73841431510174], logical.Tuple@d35dea7[ID=12,source=source-A,destination=source-B,data-length=499.1976509381854], logical.Tuple@7770f470[ID=13,source=source-A,destination=source-B,data-length=340.5090954974603], logical.Tuple@5e5d171f[ID=14,source=source-A,destination=source-B,data-length=263.9478933732827], logical.Tuple@24313fcc[ID=15,source=source-A,destination=source-B,data-length=489.9452508528483], logical.Tuple@7d20d0b[ID=16,source=source-A,destination=source-B,data-length=209.84921534395772], logical.Tuple@77f1baf5[ID=17,source=source-A,destination=source-B,data-length=200.90935618988453], logical.Tuple@41a2befb[ID=18,source=source-A,destination=source-B,data-length=432.58514973016634], logical.Tuple@6c40365c[ID=19,source=source-A,destination=source-B,data-length=437.90490784418785], logical.Tuple@7bedc48a[ID=20,source=source-A,destination=source-B,data-length=401.2297535935628], logical.Tuple@131ef10[ID=21,source=source-A,destination=source-B,data-length=475.8828969698504], logical.Tuple@55b0dcab[ID=22,source=source-A,destination=source-B,data-length=282.24471578565226], logical.Tuple@38afe297[ID=23,source=source-A,destination=source-B,data-length=226.81391723526264], logical.Tuple@2df3b89c[ID=47,source=source-A,destination=source-B,data-length=362.064374674367], logical.Tuple@682b2fa[ID=48,source=source-A,destination=source-B,data-length=179.25709969173536]]
+  tuples=[logical.Tuple@43c1b556[ID=12,source=source-A,destination=source-B,data-length=11.0], logical.Tuple@587e5365[ID=3,source=source-A,destination=source-B,data-length=60.0], logical.Tuple@22fcf7ab[ID=1,source=source-A,destination=source-B,data-length=99.0], logical.Tuple@2de23121[ID=2,source=source-A,destination=source-B,data-length=254.0], logical.Tuple@63475ace[ID=7,source=source-A,destination=source-B,data-length=272.0], logical.Tuple@4988d8b8[ID=4,source=source-A,destination=source-B,data-length=280.0], logical.Tuple@c0c2f8d[ID=8,source=source-A,destination=source-B,data-length=311.0], logical.Tuple@305b7c14[ID=5,source=source-A,destination=source-B,data-length=377.0], logical.Tuple@6913c1fb[ID=9,source=source-A,destination=source-B,data-length=395.0], logical.Tuple@66d18979[ID=0,source=source-A,destination=source-B,data-length=430.0], logical.Tuple@bccb269[ID=11,source=source-A,destination=source-B,data-length=461.0]]
   MIPS=1000.0
-  Utilized RAM=95.0
+  Utilized RAM=102.0
   Downlink BW=100
   Uplink BW=100
-], physical.FogNode@70325e14[
+], physical.FogNode@609cd4d8[
   id=3
   name=f3
-  tuples=[logical.Tuple@61322f9d[ID=0,source=source-A,destination=source-B,data-length=100.0], logical.Tuple@6ad82709[ID=1,source=source-A,destination=source-B,data-length=204.86782941207662], logical.Tuple@510f3d34[ID=2,source=source-A,destination=source-B,data-length=405.22040942064785], logical.Tuple@7817fd62[ID=3,source=source-A,destination=source-B,data-length=474.00548896320356], logical.Tuple@8297b3a[ID=4,source=source-A,destination=source-B,data-length=129.31466316883228], logical.Tuple@2362f559[ID=5,source=source-A,destination=source-B,data-length=375.0492562177195], logical.Tuple@b2c9a9c[ID=6,source=source-A,destination=source-B,data-length=393.2566904991023], logical.Tuple@4c178a76[ID=7,source=source-A,destination=source-B,data-length=129.42083237009174], logical.Tuple@fa4c865[ID=8,source=source-A,destination=source-B,data-length=438.9556461822501], logical.Tuple@3bd82cf5[ID=9,source=source-A,destination=source-B,data-length=174.2065505206606], logical.Tuple@544fa968[ID=10,source=source-A,destination=source-B,data-length=333.7104858483451], logical.Tuple@247bddad[ID=11,source=source-A,destination=source-B,data-length=127.73841431510174], logical.Tuple@d35dea7[ID=12,source=source-A,destination=source-B,data-length=499.1976509381854], logical.Tuple@7770f470[ID=13,source=source-A,destination=source-B,data-length=340.5090954974603], logical.Tuple@5e5d171f[ID=14,source=source-A,destination=source-B,data-length=263.9478933732827], logical.Tuple@24313fcc[ID=15,source=source-A,destination=source-B,data-length=489.9452508528483], logical.Tuple@7d20d0b[ID=16,source=source-A,destination=source-B,data-length=209.84921534395772], logical.Tuple@77f1baf5[ID=17,source=source-A,destination=source-B,data-length=200.90935618988453], logical.Tuple@41a2befb[ID=18,source=source-A,destination=source-B,data-length=432.58514973016634], logical.Tuple@6c40365c[ID=19,source=source-A,destination=source-B,data-length=437.90490784418785], logical.Tuple@7bedc48a[ID=20,source=source-A,destination=source-B,data-length=401.2297535935628], logical.Tuple@131ef10[ID=21,source=source-A,destination=source-B,data-length=475.8828969698504], logical.Tuple@55b0dcab[ID=22,source=source-A,destination=source-B,data-length=282.24471578565226], logical.Tuple@38afe297[ID=23,source=source-A,destination=source-B,data-length=226.81391723526264], logical.Tuple@4c402120[ID=24,source=source-A,destination=source-B,data-length=369.2741266740904], logical.Tuple@327514f[ID=25,source=source-A,destination=source-B,data-length=132.37962715252985], logical.Tuple@5b12b668[ID=26,source=source-A,destination=source-B,data-length=471.54361924686356], logical.Tuple@1165b38[ID=27,source=source-A,destination=source-B,data-length=172.93418920949108], logical.Tuple@4c12331b[ID=28,source=source-A,destination=source-B,data-length=375.0500000668652], logical.Tuple@7586beff[ID=29,source=source-A,destination=source-B,data-length=168.70592267803585], logical.Tuple@2df3b89c[ID=47,source=source-A,destination=source-B,data-length=362.064374674367]]
+  tuples=[logical.Tuple@17f7cd29[ID=13,source=source-A,destination=source-B,data-length=12.0], logical.Tuple@7d8704ef[ID=7,source=source-A,destination=source-B,data-length=29.0], logical.Tuple@13b6aecc[ID=1,source=source-A,destination=source-B,data-length=33.0], logical.Tuple@158a8276[ID=17,source=source-A,destination=source-B,data-length=51.0], logical.Tuple@3c3d9b6b[ID=4,source=source-A,destination=source-B,data-length=87.0], logical.Tuple@79d8407f[ID=14,source=source-A,destination=source-B,data-length=170.0], logical.Tuple@5fbe4146[ID=15,source=source-A,destination=source-B,data-length=192.0], logical.Tuple@1e66f1f5[ID=3,source=source-A,destination=source-B,data-length=395.0], logical.Tuple@4e50c791[ID=0,source=source-A,destination=source-B,data-length=421.0], logical.Tuple@7530ad9c[ID=10,source=source-A,destination=source-B,data-length=421.0], logical.Tuple@58a9760d[ID=16,source=source-A,destination=source-B,data-length=571.0], logical.Tuple@71e9ddb4[ID=6,source=source-A,destination=source-B,data-length=624.0]]
   MIPS=1000.0
-  Utilized RAM=100.0
+  Utilized RAM=104.0
   Downlink BW=100
   Uplink BW=100
 ]]
@@ -34,78 +37,11 @@ Connected to :           [physical.FogNode@65e98b1c[
 Ram Utilization History : -
 ---------------------------
 Second : Ram Utilized
-1,20
-2,20
-3,25
-4,25
-5,37
-6,37
-7,55
-8,55
-9,55
-10,45
-11,45
-12,65
-13,65
-14,65
-15,77
-16,65
-17,65
-18,74
-19,74
-20,74
-21,90
-22,90
-23,90
-24,108
-25,108
-26,108
-27,106
-28,106
-29,106
-30,107
-31,107
-32,107
-33,101
-34,105
 
 
 ---------------------------
 Tuples Processing Summary :
 ---------------------------
 Tuple : Tuple Processed Time
-1,1,000
-2,1,000
-3,767
-4,905
-5,721
-6,877
-7,1,000
-8,1,000
-9,1,000
-10,865
-11,865
-12,1,000
-13,1,000
-14,1,000
-15,610
-16,810
-17,919
-18,521
-19,633
-20,692
-21,791
-22,896
-23,914
-24,539
-25,958
-26,964
-27,1,000
-28,1,000
-29,1,000
-30,813
-31,839
-32,992
-33,519
 
 

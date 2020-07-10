@@ -66,15 +66,15 @@ public class FogNode {
      * @param tuple           : Tuple to send .
      * @param destinationNode : The destination fognode to be sent to .
      */
-    public void sendTuple(Tuple tuple, FogNode destinationNode) {
+    public void sendTuple(Tuple tuple, FogNode destinationNode,Random random) {
         if (this.connectedFogNodes.contains(destinationNode)) {
             // remove the tuple from 'this' fognode list since it has been sent ahead.
             this.tuple.remove(tuple);
             // free up RAM
-            freeUpSpace();
+            freeUpSpace(random);
             // set that tuple to the destination fognode list of tuples .
             LOGGER.log(Level.INFO, "[" + this.getName() + "]--Tuple Sent to [" + destinationNode.getName() + "] , DECREASING ram by 10 units . Total utilized RAM is [ " + utilizedRam + " ] and total tuples in list [ " + getTuple().size() + " ]");
-            destinationNode.receiveTuple(tuple);
+            destinationNode.receiveTuple(tuple,random);
         } else {
             LOGGER.warn("[" + this.getName() + "] --Not connected to [" + destinationNode.getName() + "] ! Connect first then send the tuple !");
         }
@@ -86,7 +86,7 @@ public class FogNode {
      *
      * @param tupleToReceive
      */
-    public void receiveTuple(Tuple tupleToReceive) {
+    public void receiveTuple(Tuple tupleToReceive,Random random) {
         // increase the utilized RAM
 
         // if 'this' node's RAM is full
@@ -97,7 +97,7 @@ public class FogNode {
                 // if that fognode has a level 1 and has its utilized RAM less than total RAM , then send it to
                 // that one
                 if (isHighLevelAndHasSpace(fogNode)) {
-                    fogNode.receiveTuple(tupleToReceive);
+                    fogNode.receiveTuple(tupleToReceive,random);
                     tupleToReceive.setState(TupleState.FOGNODE_TO_HIGHNODE);
                     return;
                 }
@@ -113,7 +113,7 @@ public class FogNode {
                         tupleToReceive.setState(TupleState.FOGNODE_TO_HIGHNODE);
                         LOGGER.info("[" + this.getName() + "]--Tuple is sent to [" + fogNode.getName() + "] queue , freeing up space and list");
                         this.tuple.remove(tupleToReceive);
-                        freeUpSpace();
+                        freeUpSpace(random);
                         break;
                     }
                 }
@@ -124,7 +124,7 @@ public class FogNode {
             LOGGER.log(Level.INFO, "[" + this.getName() + "]--Tuple received , INCREASING ram by 10 units . Total utilized RAM is [ " + utilizedRam + " ] and total tuples in list [ " + tuple.size() + " ]");
             utilizationHistory.add(utilizedRam);
             Instant start = Instant.now();
-            processTuple(tupleToReceive);
+            processTuple(tupleToReceive,random);
             Instant end = Instant.now();
             long time = Duration.between(start,end).toMillis();
             tupleTimeHistory.add(time);
@@ -136,11 +136,11 @@ public class FogNode {
      * Helper method to free up space of this fognode by reducing
      * utilized RAM by 10 units .
      */
-    private void freeUpSpace() {
+    private void freeUpSpace(Random randomizer) {
         if (this.utilizedRam == 0) {
 
         } else if (this.utilizedRam >= 10) {
-            this.utilizedRam = this.utilizedRam - ThreadLocalRandom.current().nextInt(4, 9);
+            this.utilizedRam = this.utilizedRam - randomizer.nextInt(3) ;
         }
     }
 
@@ -182,17 +182,17 @@ public class FogNode {
      *
      * @return
      */
-    public void processTuple(Tuple tuple) {
+    public void processTuple(Tuple tuple,Random random) {
         double dataLength = tuple.getDataLength();
         try {
             if (dataLength >= 100 && dataLength <= 350) {
                 Thread.sleep(ThreadLocalRandom.current().nextInt(500,1000));
             } else if (dataLength > 350 && dataLength <= 500) {
-                 Thread.sleep(1000);
+                Thread.sleep(ThreadLocalRandom.current().nextInt(1000,1500));
             } else if (dataLength > 500 && dataLength <= 1000) {
-                Thread.sleep(500);
+                Thread.sleep(ThreadLocalRandom.current().nextInt(1500,2000));
             }
-            freeUpSpace();
+            freeUpSpace(random);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }

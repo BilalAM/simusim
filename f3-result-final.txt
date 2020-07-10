@@ -1,21 +1,23 @@
 FogNode 3 Summary
 =====================================
-Total tuples processed : 31
-Date and time :          2020-06-29T00:39:06.381192
-Connected to :           [physical.FogNode@2d1ef81a[
+Total tuples processed : 12
+Average RAM   :          105
+Date and time :          2020-07-10T23:35:27.102055
+Average Processing time of all tuples :  782
+Connected to :           [physical.FogNode@5bda8e08[
   id=4
   name=f4
-  tuples=[logical.Tuple@4c402120[ID=24,source=source-A,destination=source-B,data-length=369.2741266740904], logical.Tuple@327514f[ID=25,source=source-A,destination=source-B,data-length=132.37962715252985], logical.Tuple@327514f[ID=25,source=source-A,destination=source-B,data-length=132.37962715252985], logical.Tuple@5b12b668[ID=26,source=source-A,destination=source-B,data-length=471.54361924686356], logical.Tuple@5b12b668[ID=26,source=source-A,destination=source-B,data-length=471.54361924686356], logical.Tuple@1165b38[ID=27,source=source-A,destination=source-B,data-length=172.93418920949108], logical.Tuple@1165b38[ID=27,source=source-A,destination=source-B,data-length=172.93418920949108], logical.Tuple@4c12331b[ID=28,source=source-A,destination=source-B,data-length=375.0500000668652], logical.Tuple@4c12331b[ID=28,source=source-A,destination=source-B,data-length=375.0500000668652], logical.Tuple@7586beff[ID=29,source=source-A,destination=source-B,data-length=168.70592267803585], logical.Tuple@7586beff[ID=29,source=source-A,destination=source-B,data-length=168.70592267803585], logical.Tuple@3b69e7d1[ID=30,source=source-A,destination=source-B,data-length=115.69269733243664], logical.Tuple@3b69e7d1[ID=30,source=source-A,destination=source-B,data-length=115.69269733243664], logical.Tuple@3b69e7d1[ID=30,source=source-A,destination=source-B,data-length=115.69269733243664], logical.Tuple@815b41f[ID=31,source=source-A,destination=source-B,data-length=358.057533686376], logical.Tuple@815b41f[ID=31,source=source-A,destination=source-B,data-length=358.057533686376], logical.Tuple@815b41f[ID=31,source=source-A,destination=source-B,data-length=358.057533686376], logical.Tuple@5542c4ed[ID=32,source=source-A,destination=source-B,data-length=430.383812979607], logical.Tuple@5542c4ed[ID=32,source=source-A,destination=source-B,data-length=430.383812979607], logical.Tuple@5542c4ed[ID=32,source=source-A,destination=source-B,data-length=430.383812979607], logical.Tuple@1573f9fc[ID=33,source=source-A,destination=source-B,data-length=237.67334614719556], logical.Tuple@1573f9fc[ID=33,source=source-A,destination=source-B,data-length=237.67334614719556], logical.Tuple@1573f9fc[ID=33,source=source-A,destination=source-B,data-length=237.67334614719556], logical.Tuple@6150c3ec[ID=34,source=source-A,destination=source-B,data-length=388.7414797467129], logical.Tuple@44c03695[ID=35,source=source-A,destination=source-B,data-length=232.06405702328277], logical.Tuple@7e6f74c[ID=36,source=source-A,destination=source-B,data-length=266.97726044848923], logical.Tuple@dd05255[ID=38,source=source-A,destination=source-B,data-length=268.00625819895095]]
+  tuples=[logical.Tuple@1e800aaa[ID=6,source=source-A,destination=source-B,data-length=514.0], logical.Tuple@185a6e9[ID=2,source=source-A,destination=source-B,data-length=641.0], logical.Tuple@6f03482[ID=10,source=source-A,destination=source-B,data-length=725.0], logical.Tuple@9d5509a[ID=19,source=source-A,destination=source-B,data-length=655.0], logical.Tuple@179ece50[ID=13,source=source-A,destination=source-B,data-length=725.0], logical.Tuple@3b0090a4[ID=5,source=source-A,destination=source-B,data-length=659.0], logical.Tuple@3cd3e762[ID=14,source=source-A,destination=source-B,data-length=981.0], logical.Tuple@1fa121e2[ID=9,source=source-A,destination=source-B,data-length=712.0], logical.Tuple@7eac9008[ID=12,source=source-A,destination=source-B,data-length=791.0], logical.Tuple@4116aac9[ID=8,source=source-A,destination=source-B,data-length=879.0], logical.Tuple@62ddbd7e[ID=11,source=source-A,destination=source-B,data-length=923.0], logical.Tuple@74e52ef6[ID=18,source=source-A,destination=source-B,data-length=972.0]]
   MIPS=1000.0
-  Utilized RAM=103.0
+  Utilized RAM=106.0
   Downlink BW=100
   Uplink BW=100
-], physical.FogNode@6a78afa0[
+], physical.FogNode@6ed3ccb2[
   id=5
   name=f5
-  tuples=[logical.Tuple@6150c3ec[ID=34,source=source-A,destination=source-B,data-length=388.7414797467129], logical.Tuple@6150c3ec[ID=34,source=source-A,destination=source-B,data-length=388.7414797467129], logical.Tuple@44c03695[ID=35,source=source-A,destination=source-B,data-length=232.06405702328277], logical.Tuple@44c03695[ID=35,source=source-A,destination=source-B,data-length=232.06405702328277], logical.Tuple@7e6f74c[ID=36,source=source-A,destination=source-B,data-length=266.97726044848923], logical.Tuple@7e6f74c[ID=36,source=source-A,destination=source-B,data-length=266.97726044848923], logical.Tuple@2f4948e4[ID=37,source=source-A,destination=source-B,data-length=440.81797131230536], logical.Tuple@2f4948e4[ID=37,source=source-A,destination=source-B,data-length=440.81797131230536], logical.Tuple@2f4948e4[ID=37,source=source-A,destination=source-B,data-length=440.81797131230536], logical.Tuple@dd05255[ID=38,source=source-A,destination=source-B,data-length=268.00625819895095], logical.Tuple@dd05255[ID=38,source=source-A,destination=source-B,data-length=268.00625819895095], logical.Tuple@1f2586d6[ID=39,source=source-A,destination=source-B,data-length=355.6234664254291], logical.Tuple@1f2586d6[ID=39,source=source-A,destination=source-B,data-length=355.6234664254291], logical.Tuple@10683d9d[ID=40,source=source-A,destination=source-B,data-length=343.3785813765347], logical.Tuple@10683d9d[ID=40,source=source-A,destination=source-B,data-length=343.3785813765347], logical.Tuple@10683d9d[ID=40,source=source-A,destination=source-B,data-length=343.3785813765347], logical.Tuple@3fc2959f[ID=41,source=source-A,destination=source-B,data-length=123.50321919915493], logical.Tuple@3fc2959f[ID=41,source=source-A,destination=source-B,data-length=123.50321919915493], logical.Tuple@3fc2959f[ID=41,source=source-A,destination=source-B,data-length=123.50321919915493], logical.Tuple@5aa9e4eb[ID=42,source=source-A,destination=source-B,data-length=121.9321874698918], logical.Tuple@5aa9e4eb[ID=42,source=source-A,destination=source-B,data-length=121.9321874698918], logical.Tuple@5aa9e4eb[ID=42,source=source-A,destination=source-B,data-length=121.9321874698918], logical.Tuple@6989da5e[ID=43,source=source-A,destination=source-B,data-length=137.51690135232502], logical.Tuple@6989da5e[ID=43,source=source-A,destination=source-B,data-length=137.51690135232502], logical.Tuple@6989da5e[ID=43,source=source-A,destination=source-B,data-length=137.51690135232502], logical.Tuple@385c9627[ID=44,source=source-A,destination=source-B,data-length=455.8620417446167], logical.Tuple@385c9627[ID=44,source=source-A,destination=source-B,data-length=455.8620417446167], logical.Tuple@385c9627[ID=44,source=source-A,destination=source-B,data-length=455.8620417446167], logical.Tuple@139982de[ID=45,source=source-A,destination=source-B,data-length=265.9036931922034], logical.Tuple@139982de[ID=45,source=source-A,destination=source-B,data-length=265.9036931922034], logical.Tuple@682b2fa[ID=48,source=source-A,destination=source-B,data-length=179.25709969173536], logical.Tuple@217ed35e[ID=49,source=source-A,destination=source-B,data-length=141.76440171461815]]
+  tuples=[]
   MIPS=1000.0
-  Utilized RAM=105.0
+  Utilized RAM=0.0
   Downlink BW=100
   Uplink BW=100
 ]]
@@ -27,72 +29,34 @@ Ram Utilization History : -
 ---------------------------
 Second : Ram Utilized
 1,10
-2,15
-3,18
-4,20
-5,23
-6,25
-7,30
-8,35
-9,37
-10,41
-11,43
-12,47
-13,49
-14,52
-15,54
-16,57
-17,63
-18,66
-19,71
-20,77
-21,83
-22,85
-23,91
-24,95
-25,97
-26,100
-27,102
-28,105
-29,107
-30,110
-31,109
+2,18
+3,26
+4,36
+5,44
+6,52
+7,60
+8,68
+9,77
+10,87
+11,97
+12,105
 
 
 ---------------------------
 Tuples Processing Summary :
 ---------------------------
 Tuple : Tuple Processed Time
-1,999
-2,764
-3,1,000
-4,1,000
-5,977
-6,1,000
-7,1,000
-8,932
-9,1,000
-10,819
-11,785
-12,529
-13,1,000
-14,925
-15,969
-16,1,000
-17,954
-18,912
-19,1,000
-20,1,000
-21,1,000
-22,1,000
-23,601
-24,986
-25,1,000
-26,791
-27,1,000
-28,542
-29,1,000
-30,530
-31,1,000
+1,0
+2,0
+3,0
+4,0
+5,0
+6,678
+7,882
+8,1,310
+9,1,445
+10,1,227
+11,1,982
+12,1,865
 
 

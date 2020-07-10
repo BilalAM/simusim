@@ -7,6 +7,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Sensor {
     public String sensorName;
@@ -31,10 +32,10 @@ public class Sensor {
         this.connectedFogNodes = new ArrayList<>();
     }
 
-    public void sendTuple(Tuple tuple , FogNode toFogNode){
+    public void sendTuple(Tuple tuple , FogNode toFogNode, Random random){
         if(connectedFogNodes.contains(toFogNode) && toFogNode.getConnectedSensorNodes().contains(this)){
             this.connectedFogNodes.remove(tuple);
-            toFogNode.receiveTuple(tuple);
+            toFogNode.receiveTuple(tuple,random);
 
         }else{
             LOGGER.warn("["+sensorName+"] --Not connected to ["+toFogNode.getName()+"] ! Connect first then send the tuple !");

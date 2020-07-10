@@ -1,7 +1,11 @@
 FogNode 1 Summary
 =====================================
 Total tuples processed : ${totalTuples}
+<#if rams??>
+Average RAM   :          ${rams[rams?size - 1]}
+</#if>
 Date and time :          ${dateTime}
+Average Processing time of all tuples :  ${averageTime}
 Connected to :           ${connectedDevices}
 =====================================
 

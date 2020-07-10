@@ -5,10 +5,11 @@ import physical.FogNode;
 import physical.Sensor;
 
 import java.util.List;
+import java.util.Random;
 
 public class Testing {
     public static void main(String[] args) throws InterruptedException {
-        Tuple t1 = new Tuple(1,"source1","mera1");
+      /*  Tuple t1 = new Tuple(1,"source1","mera1");
         Tuple t2 = new Tuple(2,"source1","mera2");
         Tuple t3 = new Tuple(3,"source1","mera3");
         Tuple t4 = new Tuple(4,"source1","mera4");
@@ -24,8 +25,16 @@ public class Testing {
         Tuple t14 = new Tuple(14,"source1","mera4");
         Tuple t15 = new Tuple(15,"source1","mera5");
         List<Tuple> tuples = List.of(t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15);
-
+*/
         // low level fognode
+        Random generator = new Random(50);
+        for(int i=0;i<5;i++){
+            int num = generator.nextInt(100);
+            System.out.println(num);
+        }
+
+
+
         FogNode lowLevel1 = new FogNode();
         lowLevel1.setId(1);
         lowLevel1.setName("LOW-LEVEL-FOG-1");
@@ -69,10 +78,10 @@ public class Testing {
         saraSenseItPlease.sensorName = "Sensor A";
         saraSenseItPlease.tupleType = "howdy";
         saraSenseItPlease.connectTo(lowLevel1);
-        lowLevel1.connectTo(highLevel1);
-        for(Tuple tuple : tuples){
-            saraSenseItPlease.sendTuple(tuple,lowLevel1);
-        }
+     //   lowLevel1.connectTo(highLevel1);
+       // for(Tuple tuple : tuples){
+         //   saraSenseItPlease.sendTuple(tuple,lowLevel1);
+       // }
 
     }
 }
