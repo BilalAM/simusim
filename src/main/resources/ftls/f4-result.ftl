@@ -1,7 +1,7 @@
 FogNode 1 Summary
 =====================================
 Total tuples processed : ${totalTuples}
-<#if rams??>
+<#if rams?? && rams?size != 0>
 Average RAM   :          ${rams[rams?size - 1]}
 </#if>
 Date and time :          ${dateTime}
