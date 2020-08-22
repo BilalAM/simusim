@@ -13,10 +13,7 @@ import java.io.FileWriter;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 
 /**
@@ -126,6 +123,12 @@ public class TestDriverHeterogenous {
 
         Instant end = Instant.now();
         long seconds = Duration.between(start, end).getSeconds();
+        Set<Thread> allThreads = Thread.getAllStackTraces().keySet();
+        for(Thread t : allThreads){
+            if(t.getName().equalsIgnoreCase("custom")){
+                t.join();
+            }
+        }
         LOGGER.log(Level.INFO, "Simulation took [ " + seconds + " ] to complete ");
         appendResultsToFile(f1, f2, f3, f4, f5);
     }
