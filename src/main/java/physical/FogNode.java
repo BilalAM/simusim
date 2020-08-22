@@ -1,9 +1,9 @@
 package physical;
 
+import logical.Tuple;
 import logical.TupleState;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import logical.Tuple;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import strategies.TupleProcessingStrategy;
@@ -23,6 +23,7 @@ public class FogNode {
     private double utilizedRam;
 
 
+    private static final Object LOCK = new Object();
     public List<Double> utilizationHistory = new ArrayList<>();
     public List<Long> tupleTimeHistory = new ArrayList<Long>();
     private List<Tuple> tuple;
@@ -37,6 +38,8 @@ public class FogNode {
     private TupleProcessingStrategy tupleProcessingStrategy;
     private double powerConsumption;
     private int level;
+    private boolean isQuantaEnabled;
+
 
     public FogNode(int id, String name, List<Tuple> tuple, double MIPS, int uplinkBW, int downloadBW, TupleProcessingStrategy tupleProcessingStrategy) {
         this.tuple = tuple;
@@ -66,19 +69,21 @@ public class FogNode {
      * @param tuple           : Tuple to send .
      * @param destinationNode : The destination fognode to be sent to .
      */
-    public void sendTuple(Tuple tuple, FogNode destinationNode,Random random) {
+    public void sendTuple(Tuple tuple, FogNode destinationNode, Random random) {
         if (this.connectedFogNodes.contains(destinationNode)) {
             // remove the tuple from 'this' fognode list since it has been sent ahead.
             this.tuple.remove(tuple);
             // free up RAM
             freeUpSpace(random);
             // set that tuple to the destination fognode list of tuples .
-            LOGGER.log(Level.INFO, "[" + this.getName() + "]--Tuple Sent to [" + destinationNode.getName() + "] , DECREASING ram by 10 units . Total utilized RAM is [ " + utilizedRam + " ] and total tuples in list [ " + getTuple().size() + " ]");
-            destinationNode.receiveTuple(tuple,random);
+            LOGGER.log(Level.TRACE, "[" + this.getName() + "]--Tuple Sent to [" + destinationNode.getName() + "] , DECREASING ram by 10 units . Total utilized RAM is [ " + utilizedRam + " ] and total tuples in list [ " + getTuple().size() + " ]");
+            destinationNode.receiveTuple(tuple, random);
         } else {
             LOGGER.warn("[" + this.getName() + "] --Not connected to [" + destinationNode.getName() + "] ! Connect first then send the tuple !");
         }
     }
+
+    public List<Tuple> tuplesInnerList = new ArrayList<>();
 
     /**
      * Receives a tuple and increases the utilized RAM
@@ -86,18 +91,22 @@ public class FogNode {
      *
      * @param tupleToReceive
      */
-    public void receiveTuple(Tuple tupleToReceive,Random random) {
+    TupleProcessingStrategy processingStrategy = new TupleProcessingStrategy();
+
+    public void receiveTuple(Tuple tupleToReceive, Random random) {
+
+
         // increase the utilized RAM
 
         // if 'this' node's RAM is full
         // send it to upper level node.
         if (this.utilizedRam > this.totalRAM) {
-            LOGGER.trace("[" + this.getName() + "]--Warning ! Overloaded RAM ! , Sending remaining tuples to a high level node !");
+            LOGGER.info("[" + this.getName() + "]--Warning ! Overloaded RAM ! , Sending remaining tuples to a high level node !");
             for (FogNode fogNode : this.getConnectedFogNodes()) {
                 // if that fognode has a level 1 and has its utilized RAM less than total RAM , then send it to
                 // that one
                 if (isHighLevelAndHasSpace(fogNode)) {
-                    fogNode.receiveTuple(tupleToReceive,random);
+                    fogNode.receiveTuple(tupleToReceive, random);
                     tupleToReceive.setState(TupleState.FOGNODE_TO_HIGHNODE);
                     return;
                 }
@@ -106,7 +115,7 @@ public class FogNode {
             // then we would have to send it to anyone of high level node Queues .
             if (tupleToReceive.getState().equals(TupleState.SENSOR_TO_FOGNODE.toString())) {
                 LOGGER.info("[" + this.getName() + "]--Tuple is still at [" + TupleState.SENSOR_TO_FOGNODE.toString() + "] , " +
-                        "sending it to High FogNode PENDING QUEUE , total Tuples in list [ "+ tuple.size() +"]");
+                        "sending it to High FogNode PENDING QUEUE , total Tuples in list [ " + tuple.size() + "]");
                 for (FogNode fogNode : this.getConnectedFogNodes()) {
                     if (isHighLevel(fogNode)) {
                         fogNode.getPendingTuplesQueue().add(tupleToReceive);
@@ -121,13 +130,36 @@ public class FogNode {
         } else {
             this.utilizedRam = this.utilizedRam + 10;
             this.tuple.add(tupleToReceive);
-            LOGGER.log(Level.INFO, "[" + this.getName() + "]--Tuple received , INCREASING ram by 10 units . Total utilized RAM is [ " + utilizedRam + " ] and total tuples in list [ " + tuple.size() + " ]");
+            LOGGER.log(Level.TRACE, "[" + this.getName() + "]--Tuple received , INCREASING ram by 10 units . Total utilized RAM is [ " + utilizedRam + " ] and total tuples in list [ " + tuple.size() + " ]");
             utilizationHistory.add(utilizedRam);
-            Instant start = Instant.now();
-            processTuple(tupleToReceive,random);
-            Instant end = Instant.now();
-            long time = Duration.between(start,end).toMillis();
-            tupleTimeHistory.add(time);
+
+
+            if (isQuantaEnabled == true) {
+
+                LOGGER.info("BEFORE PROCESS AGE OF TUPLE [ " + tupleToReceive.getTupleId() + " ] IS  : " + tupleToReceive.getAgeInMilliseconds());
+                new Thread(() -> {
+                    processTuple(tupleToReceive, random, isQuantaEnabled);
+                }, "custom").start();
+                new Thread(() -> {
+                    synchronized (LOCK) {
+                        while (this.tuple.size() != 0) {
+                            Tuple t = this.tuple.get(this.tuple.size() - 1);
+                            if (t.getAgeInMilliseconds() > 4000) {
+                                // process it immediately on first priority man :
+
+                                LOGGER.error("TUPLE [ " + t.getTupleId() + "] HAS STAYED FOR LONGER THAN 4 SECONDS .. PROCESSING IT ON FIRST PRIORITY");
+                                processTuple(t, random, isQuantaEnabled);
+                            }
+                        }
+                    }
+                }, "custom").start();
+            } else {
+                Instant start = Instant.now();
+                processTuple(tupleToReceive, random, isQuantaEnabled);
+                Instant end = Instant.now();
+                long time = Duration.between(start, end).toMillis();
+                tupleTimeHistory.add(time);
+            }
         }
     }
 
@@ -140,7 +172,7 @@ public class FogNode {
         if (this.utilizedRam == 0) {
 
         } else if (this.utilizedRam >= 10) {
-            this.utilizedRam = this.utilizedRam - randomizer.nextInt(3) ;
+            this.utilizedRam = this.utilizedRam - randomizer.nextInt(3);
         }
     }
 
@@ -182,18 +214,48 @@ public class FogNode {
      *
      * @return
      */
-    public void processTuple(Tuple tuple,Random random) {
+    public void processTuple(Tuple tuple, Random random, boolean isQuantaEnabled) {
+        Instant start = Instant.now();
         double dataLength = tuple.getDataLength();
         try {
-            if (dataLength >= 100 && dataLength <= 350) {
-                Thread.sleep(ThreadLocalRandom.current().nextInt(500,1000));
-            } else if (dataLength > 350 && dataLength <= 500) {
-                Thread.sleep(ThreadLocalRandom.current().nextInt(1000,1500));
-            } else if (dataLength > 500 && dataLength <= 1000) {
-                Thread.sleep(ThreadLocalRandom.current().nextInt(1500,2000));
+            if (isQuantaEnabled == true) {
+                if (tuple.getAgeInMilliseconds() > 4000) {
+                    Instant end = Instant.now();
+                    long time = Duration.between(start, end).toMillis();
+                    tupleTimeHistory.add(time);
+                    freeUpSpace(random);
+                    this.tuple.remove(tuple);
+                    //    LOGGER.info("AFTER PROCESS AGE OF TUPLE [ " + tuple.getTupleId() + " ] IS  : " + tuple.getAgeInMilliseconds());
+
+                } else {
+                    if (dataLength >= 100 && dataLength <= 350) {
+                        Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
+                    } else if (dataLength > 350 && dataLength <= 500) {
+                        Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
+                    } else if (dataLength > 500 && dataLength <= 1000) {
+                        Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
+                    }
+                    Instant end = Instant.now();
+                    long time = Duration.between(start, end).toMillis();
+                    tupleTimeHistory.add(time);
+                    freeUpSpace(random);
+                    this.tuple.remove(tuple);
+                    LOGGER.info("PROCESSED TUPLE [ " + tuple.getTupleId() + " ]");
+                }
+            } else {
+                if (dataLength >= 100 && dataLength <= 350) {
+                    Thread.sleep(ThreadLocalRandom.current().nextInt(500, 1000));
+                } else if (dataLength > 350 && dataLength <= 500) {
+                    Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 1500));
+                } else if (dataLength > 500 && dataLength <= 1000) {
+                    Thread.sleep(ThreadLocalRandom.current().nextInt(1500, 2000));
+                }
+                freeUpSpace(random);
             }
-            freeUpSpace(random);
-        } catch (InterruptedException e) {
+            //  LOGGER.info("AFTER PROCESS AGE OF TUPLE [ " + tuple.getTupleId() + " ] IS  : " + tuple.getAgeInMilliseconds());
+
+        } catch (
+                InterruptedException e) {
             Thread.currentThread().interrupt();
         }
 
@@ -340,5 +402,9 @@ public class FogNode {
                 .append("Downlink BW", downloadBW)
                 .append("Uplink BW", uplinkBW)
                 .toString();
+    }
+
+    public void setQuantaEnabled(boolean quantaEnabled) {
+        isQuantaEnabled = quantaEnabled;
     }
 }

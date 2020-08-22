@@ -1,31 +1,31 @@
 FogNode 1 Summary
 =====================================
-Total tuples processed : 12
-Average RAM   :          108
-Date and time :          2020-07-10T23:35:27.127682
-Average Processing time of all tuples :  1,737
-Connected to :           [physical.FogNode@70325e14[
+Total tuples processed : 0
+Average RAM   :          110
+Date and time :          2020-08-22T14:28:59.382403
+Average Processing time of all tuples :  2,183
+Connected to :           [physical.FogNode@762ef0ea[
   id=1
   name=f1
-  tuples=[logical.Tuple@37ceb1df[ID=9,source=source-A,destination=source-B,data-length=206.0], logical.Tuple@7c9d8e2[ID=3,source=source-A,destination=source-B,data-length=245.0], logical.Tuple@20d525[ID=4,source=source-A,destination=source-B,data-length=267.0], logical.Tuple@6200f9cb[ID=2,source=source-A,destination=source-B,data-length=320.0], logical.Tuple@2002fc1d[ID=5,source=source-A,destination=source-B,data-length=425.0], logical.Tuple@69453e37[ID=0,source=source-A,destination=source-B,data-length=654.0], logical.Tuple@6f4a47c7[ID=1,source=source-A,destination=source-B,data-length=659.0], logical.Tuple@ae13544[ID=7,source=source-A,destination=source-B,data-length=659.0], logical.Tuple@3d34d211[ID=8,source=source-A,destination=source-B,data-length=950.0], logical.Tuple@7dc0f706[ID=6,source=source-A,destination=source-B,data-length=972.0]]
+  tuples=[]
   MIPS=1000.0
   Utilized RAM=91.0
   Downlink BW=100
   Uplink BW=100
-], physical.FogNode@4009e306[
+], physical.FogNode@31f9b85e[
   id=2
   name=f2
-  tuples=[logical.Tuple@43c1b556[ID=12,source=source-A,destination=source-B,data-length=11.0], logical.Tuple@587e5365[ID=3,source=source-A,destination=source-B,data-length=60.0], logical.Tuple@22fcf7ab[ID=1,source=source-A,destination=source-B,data-length=99.0], logical.Tuple@2de23121[ID=2,source=source-A,destination=source-B,data-length=254.0], logical.Tuple@63475ace[ID=7,source=source-A,destination=source-B,data-length=272.0], logical.Tuple@4988d8b8[ID=4,source=source-A,destination=source-B,data-length=280.0], logical.Tuple@c0c2f8d[ID=8,source=source-A,destination=source-B,data-length=311.0], logical.Tuple@305b7c14[ID=5,source=source-A,destination=source-B,data-length=377.0], logical.Tuple@6913c1fb[ID=9,source=source-A,destination=source-B,data-length=395.0], logical.Tuple@66d18979[ID=0,source=source-A,destination=source-B,data-length=430.0], logical.Tuple@bccb269[ID=11,source=source-A,destination=source-B,data-length=461.0]]
+  tuples=[]
   MIPS=1000.0
-  Utilized RAM=102.0
+  Utilized RAM=95.0
   Downlink BW=100
   Uplink BW=100
-], physical.FogNode@609cd4d8[
+], physical.FogNode@424e1977[
   id=3
   name=f3
-  tuples=[logical.Tuple@17f7cd29[ID=13,source=source-A,destination=source-B,data-length=12.0], logical.Tuple@7d8704ef[ID=7,source=source-A,destination=source-B,data-length=29.0], logical.Tuple@13b6aecc[ID=1,source=source-A,destination=source-B,data-length=33.0], logical.Tuple@158a8276[ID=17,source=source-A,destination=source-B,data-length=51.0], logical.Tuple@3c3d9b6b[ID=4,source=source-A,destination=source-B,data-length=87.0], logical.Tuple@79d8407f[ID=14,source=source-A,destination=source-B,data-length=170.0], logical.Tuple@5fbe4146[ID=15,source=source-A,destination=source-B,data-length=192.0], logical.Tuple@1e66f1f5[ID=3,source=source-A,destination=source-B,data-length=395.0], logical.Tuple@4e50c791[ID=0,source=source-A,destination=source-B,data-length=421.0], logical.Tuple@7530ad9c[ID=10,source=source-A,destination=source-B,data-length=421.0], logical.Tuple@58a9760d[ID=16,source=source-A,destination=source-B,data-length=571.0], logical.Tuple@71e9ddb4[ID=6,source=source-A,destination=source-B,data-length=624.0]]
+  tuples=[]
   MIPS=1000.0
-  Utilized RAM=104.0
+  Utilized RAM=98.0
   Downlink BW=100
   Uplink BW=100
 ]]
@@ -38,33 +38,32 @@ Ram Utilization History : -
 Second : Ram Utilized
 1,10
 2,20
-3,29
-4,38
-5,48
-6,56
-7,65
-8,75
-9,81
-10,91
-11,99
-12,108
+3,30
+4,40
+5,50
+6,60
+7,70
+8,80
+9,90
+10,100
+11,110
 
 
 ---------------------------
 Tuples Processing Summary :
 ---------------------------
 Tuple : Tuple Processed Time
-1,1,664
-2,1,754
-3,1,892
-4,1,663
-5,1,918
-6,1,894
-7,1,706
-8,1,670
-9,1,515
-10,1,580
-11,1,717
-12,1,877
+1,1,006
+2,1,353
+3,1,423
+4,1,675
+5,2,165
+6,2,273
+7,2,458
+8,2,585
+9,2,923
+10,3,387
+11,0
+12,4,957
 
 

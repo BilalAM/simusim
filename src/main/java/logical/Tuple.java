@@ -3,8 +3,9 @@ package logical;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Tuple {
     private int tupleId;
@@ -17,6 +18,8 @@ public class Tuple {
     private String source;
     private String destination;
     private String state;
+    private Instant instant = null;
+
 
     public Tuple(){
 
@@ -27,6 +30,7 @@ public class Tuple {
         this.destination = destination;
         this.setState(TupleState.SENSOR_TO_FOGNODE);
         this.setDataLength(randomGenerator(seederValue));
+        instant = Instant.now();
     }
 
     public Tuple(int tupleId, String source, String destination,double dataLength) {
@@ -37,7 +41,15 @@ public class Tuple {
         this.setDataLength(dataLength);
     }
 
+    public Duration objectAgeAsDuration () {
+        Duration d = Duration.between ( instant , Instant.now () );
+        return d;
+    }
 
+    public long getAgeInMilliseconds () {
+        Duration d = this.objectAgeAsDuration ();
+        return d.toMillis();
+    }
 
     double randomGenerator(long seed) {
         Random generator = new Random(seed);
