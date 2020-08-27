@@ -128,6 +128,7 @@ public class FogNode {
                 }
             }
         } else {
+            tuplesInnerList.add(tupleToReceive);
             this.utilizedRam = this.utilizedRam + 10;
             this.tuple.add(tupleToReceive);
             LOGGER.log(Level.TRACE, "[" + this.getName() + "]--Tuple received , INCREASING ram by 10 units . Total utilized RAM is [ " + utilizedRam + " ] and total tuples in list [ " + tuple.size() + " ]");
@@ -406,5 +407,9 @@ public class FogNode {
 
     public void setQuantaEnabled(boolean quantaEnabled) {
         isQuantaEnabled = quantaEnabled;
+    }
+
+    public boolean getQuanta(){
+        return isQuantaEnabled;
     }
 }

@@ -96,16 +96,16 @@ public class TestDriverHomogeneous {
                 int finalI = i;
                 s1.sendTuple(testTuples.get(finalI), f1, finalRandomizer);
             }
-        },"custom").start();
+        }, "custom").start();
 
-       Random finalRandomizer2 = randomizer;
+        Random finalRandomizer2 = randomizer;
         new Thread(() -> {
             for (int i = 0; i < testTuples2.size(); i++) {
                 Random finalRandomizer = finalRandomizer2;
                 int finalI = i;
                 s2.sendTuple(testTuples2.get(finalI), f2, finalRandomizer);
             }
-        },"custom").start();
+        }, "custom").start();
 
 
         for (int i = 0; i < testTuples3.size(); i++) {
@@ -115,10 +115,12 @@ public class TestDriverHomogeneous {
 
         Instant end = Instant.now();
         long seconds = Duration.between(start, end).getSeconds();
-        Set<Thread> allThreads = Thread.getAllStackTraces().keySet();
-        for(Thread t : allThreads){
-            if(t.getName().equalsIgnoreCase("custom")){
-                t.join();
+        if (f1.getQuanta() == true) {
+            Set<Thread> allThreads = Thread.getAllStackTraces().keySet();
+            for (Thread t : allThreads) {
+                if (t.getName().equalsIgnoreCase("custom")) {
+                    t.join();
+                }
             }
         }
         LOGGER.log(Level.INFO, "Simulation took [ " + seconds + " ] to complete ");
@@ -144,7 +146,7 @@ public class TestDriverHomogeneous {
         Template template = cfg.getTemplate("ftls/f1-result.ftl");
 
         Map<String, Object> templateData = new HashMap<>();
-        templateData.put("totalTuples", f1.getTuple().size());
+        templateData.put("totalTuples", f1.tuplesInnerList.size());
         templateData.put("dateTime", LocalDateTime.now().toString());
         templateData.put("connectedDevices", f1.getConnectedFogNodes().toString());
         templateData.put("rams", f1.utilizationHistory);
@@ -159,7 +161,7 @@ public class TestDriverHomogeneous {
         Template template2 = cfg.getTemplate("ftls/f2-result.ftl");
 
         Map<String, Object> templateData2 = new HashMap<>();
-        templateData2.put("totalTuples", f2.getTuple().size());
+        templateData2.put("totalTuples", f2.tuplesInnerList.size());
         templateData2.put("dateTime", LocalDateTime.now().toString());
         templateData2.put("connectedDevices", f2.getConnectedFogNodes().toString());
         templateData2.put("rams", f2.utilizationHistory);
@@ -175,7 +177,7 @@ public class TestDriverHomogeneous {
         Template template3 = cfg.getTemplate("ftls/f3-result.ftl");
 
         Map<String, Object> templateData3 = new HashMap<>();
-        templateData3.put("totalTuples", f3.getTuple().size());
+        templateData3.put("totalTuples", f3.tuplesInnerList.size());
         templateData3.put("dateTime", LocalDateTime.now().toString());
         templateData3.put("connectedDevices", f3.getConnectedFogNodes().toString());
         templateData3.put("rams", f3.utilizationHistory);
@@ -190,7 +192,7 @@ public class TestDriverHomogeneous {
         Template template4 = cfg.getTemplate("ftls/f4-result.ftl");
 
         Map<String, Object> templateData4 = new HashMap<>();
-        templateData4.put("totalTuples", f4.getTuple().size());
+        templateData4.put("totalTuples", f4.tuplesInnerList.size());
         templateData4.put("dateTime", LocalDateTime.now().toString());
         templateData4.put("connectedDevices", f4.getConnectedFogNodes().toString());
         templateData4.put("rams", f4.utilizationHistory);
@@ -205,7 +207,7 @@ public class TestDriverHomogeneous {
         Template template5 = cfg.getTemplate("ftls/f5-result.ftl");
 
         Map<String, Object> templateData5 = new HashMap<>();
-        templateData5.put("totalTuples", f5.getTuple().size());
+        templateData5.put("totalTuples", f5.tuplesInnerList.size());
         templateData5.put("dateTime", LocalDateTime.now().toString());
         templateData5.put("connectedDevices", f5.getConnectedFogNodes().toString());
         templateData5.put("rams", f5.utilizationHistory);
